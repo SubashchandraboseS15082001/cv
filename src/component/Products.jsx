@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Skeleton from "react-loading-skeleton";
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 /* line 13 has entire data link */
@@ -10,6 +11,13 @@ export default function Products() {
     const [filter, setFilter] = useState(data);
     const [loading, setLoading] = useState(false);
     let componentMounted = true;
+
+    const state = useSelector((state)=> state.handleCart)
+
+
+    useEffect(() => {
+console.log("The state  valye", state)
+    }, [state])
 
     useEffect(() => {
         const getProducts = async () => {

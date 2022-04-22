@@ -13,8 +13,15 @@ export default function Product() {
 
     const dispatch = useDispatch();
     const addProduct = (product) => {
+        console.log("the product", product)
         dispatch(addCart(product));
     }
+
+    const cart = useSelector((state)=> state.handleCart)
+
+    useEffect(() => {
+      console.log("the card details", cart)
+    }, [cart])
 
     useEffect(() => {
         const getProduct = async () =>{

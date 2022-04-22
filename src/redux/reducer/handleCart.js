@@ -5,6 +5,7 @@ const handleCart = (state = cart, action) => {
     switch (action.type) {
         case "ADDITEM":
             //check if product is already exist
+            console.log("The product is added",  state, action)
             const exist = state.find((x) => x.id === product.id);
             if(exist){
                 //increase the quantity
