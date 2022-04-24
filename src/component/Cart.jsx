@@ -42,7 +42,7 @@ const Cart = () => {
         <div className="cart-empty">
           <p>Your cart is currently empty</p>
           <div className="start-shopping">
-            <Link to="/">
+            <Link to="/products">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -87,17 +87,17 @@ const Cart = () => {
                     <button onClick={() => handleDecreaseCart(cart)}>
                       -
                     </button>
-                    <div className="count">{cart.cartQuantity}</div>
+                    <div className="count">{cart.qty}</div>
                     <button onClick={() => handleAddToCart(cart)}>+</button>
                   </div>
                   <div className="cart-product-total-price">
-                    ${cart.price * cart.cartQuantity}
+                    ${cart.price * cart.qty}
                   </div>
                 </div>
               ))}
           </div>
           <div className="cart-summary">
-            <button className="clear-btn" onClick={() => handleClearCart()}>
+            <button className="btn clear-btn btn-outline-dark btn-light" onClick={() => handleClearCart()}>
               Clear Cart
             </button>
             <div className="cart-checkout">
@@ -108,7 +108,7 @@ const Cart = () => {
               <p>Taxes and shipping calculated at checkout</p>
               <button>Check out</button>
               <div className="continue-shopping">
-                <Link to="/">
+                <Link to="/products">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"

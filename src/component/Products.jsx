@@ -10,6 +10,7 @@ export default function Products() {
     const [data, setData] = useState([]);
     const [filter, setFilter] = useState(data);
     const [loading, setLoading] = useState(false);
+    const [selected, setSelected] = useState(0);
     let componentMounted = true;
 
     const state = useSelector((state)=> state.handleCart)
@@ -58,27 +59,31 @@ console.log("The state  valye", state)
             </>
         );
     };
-    const filterProduct = (cat) => {
+    const filterProduct = (cat, id) => {
         const updatedList = data.filter((x)=>x.category === cat);
         setFilter(updatedList)
+        setSelected(id)
     }
     const ShowProducts = () => {
         return (
             <>
                 <div className="buttons d-flex justify-content-center mb-5 pb-5">
-                    <button className="btn btn-outline-dark me-4" onClick={() => setFilter(data)}>
+                <button className={`btn me-4 ${selected===0?'btn-dark':' btn-outline-dark'}`} onClick={() => {
+                setFilter(data);
+                setSelected(0);
+                }}>
                         All
                     </button>
-                    <button className="btn btn-outline-dark me-4" onClick={() => filterProduct("men's clothing")}>
+                    <button className={`btn me-4 ${selected===1?'btn-dark':' btn-outline-dark'}`} onClick={() => filterProduct("men's clothing", 1)}>
                         Men's Clothing
                     </button>
-                    <button className="btn btn-outline-dark me-4" onClick={() => filterProduct("women's clothing")}>
+                    <button className={`btn me-4 ${selected===2?'btn-dark':' btn-outline-dark'}`} onClick={() => filterProduct("women's clothing", 2)}>
                         Women's Clothing
                     </button>
-                    <button className="btn btn-outline-dark me-4" onClick={() => filterProduct("jewelery")}>
+                    <button className={`btn me-4 ${selected===3?'btn-dark':' btn-outline-dark'}`} onClick={() => filterProduct("jewelery", 3)}>
                         Jwelery
                     </button>
-                    <button className="btn btn-outline-dark me-4" onClick={() => filterProduct("electronics")}>
+                    <button className={`btn me-4 ${selected===4?'btn-dark':' btn-outline-dark'}`} onClick={() => filterProduct("electronics", 4)}>
                         Electronic
                     </button>
                 </div>
