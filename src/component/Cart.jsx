@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 export default function Cart() {
   const cart = useSelector((state)=> state.handleCart)
+  // changes 1 line
+  const [setQty]=useState(1)
 
   useEffect(() => {
     console.log("the card details from cart", cart)
@@ -12,7 +14,7 @@ export default function Cart() {
   return (
     <div className="cart-container">
       <h1>Shopping Cart</h1>
-      {cart == undefined || cart.length === 0 ? (
+      {cart === undefined || cart.length === 0 ? (
         <div className="cart-empty">
           <p>Your Cart is Currently Empty</p>
           <div className="start-shopping">
@@ -49,8 +51,11 @@ export default function Cart() {
 
                 <div className="cart-product-quantity">
                   <button>-</button>
+                  {/* changes */}
                   <div className="count">{cart.qty}</div>
-                  <button>+</button>
+                  <button className='btn btn-outline-dark me-4' onClick={() => 
+                  setQty(cart.qty+1)
+                }>+</button>
                 </div>
 
                 </div>
