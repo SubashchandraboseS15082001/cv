@@ -1,14 +1,16 @@
+import "react-loading-skeleton/dist/skeleton.css";
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import Navbar from './component/Navbar';
-import Home from './component/Home';
-import {Switch, Route} from 'react-router-dom';
-import Products from './component/Products';
-import Product from './component/Product';
-import Login from './component/Login';
-import Register from './component/Register';
 import About from './component/About';
-import Conatct from './component/Conatct';
 import Cart from './component/Cart';
+import Conatct from './component/Conatct';
+import Home from './component/Home';
+import Login from './component/Login';
+import Navbar from './component/Navbar';
+import Product from './component/Product';
+import Products from './component/Products';
+import Register from './component/Register';
+
 
 
 function App() {
